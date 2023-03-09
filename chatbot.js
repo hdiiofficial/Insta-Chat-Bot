@@ -1,4 +1,4 @@
-const Insta = require('@androz2091/insta.js');
+Yooconst Insta = require('@androz2091/insta.js');
 const client = new Insta.Client();
 const chatbot = require("node-fetch").default;
 
@@ -10,9 +10,9 @@ client.on('messageCreate', (message) => {
     if (message.author.id === client.user.id) return
     message.markSeen();
 
-    if(message.content.toLowerCase().includes('Who Is Moezilla')) return message.chat.sendMessage('My Master MoeZilla');
-    if(message.content.toLowerCase().includes('!repo')) return message.chat.sendMessage('https://github.com/MoeZilla/Insta-Chat-Bot');
-    if(message.content.toLowerCase().includes('!Repo')) return message.chat.sendMessage('https://github.com/MoeZilla/Insta-Chat-Bot');
+    if(message.content.toLowerCase().includes('Who Is Hadi')) return message.chat.sendMessage('My Master');
+    if(message.content.toLowerCase().includes('!repo')) return message.chat.sendMessage('https://github.');
+    if(message.content.toLowerCase().includes('!Repo')) return message.chat.sendMessage('https://github.com/MoeZilla/');
     if(message.content.toLowerCase().includes('!ping')) return message.chat.sendMessage('pomg');
 
     chatbot(`https://api.affiliateplus.xyz/api/chatbot?message=${encodeURIComponent(message.content)}&botname=${process.env.BotName}&ownername=${process.env.OwnerName}`)
