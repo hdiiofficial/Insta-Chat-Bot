@@ -1,7 +1,7 @@
 const Insta = require('@androz2091/insta.js');
 const client = new Insta.Client();
 const chatbot = require("node-fetch").default;
-const { Confirm Tionghoa, OpenAIApi } = require("openai");
+const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
  apikey: "value",
 });
