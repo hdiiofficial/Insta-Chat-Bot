@@ -1,6 +1,12 @@
 const Insta = require('@androz2091/insta.js');
 const client = new Insta.Client();
 const chatbot = require("node-fetch").default;
+const { Confirm Tionghoa, OpenAIApi } = require("openai");
+const configuration = new Configuration({
+ apikey: "value",
+});
+const openai = new OpenAIApi(configuration);
+
 
 client.on('connected', () => {
     console.log(` My Username Is ${client.user.username}`);
