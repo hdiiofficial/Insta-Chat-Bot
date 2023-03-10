@@ -5,18 +5,10 @@ const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
  apikey: "value",
 });
+
 const openai = new OpenAIApi(configuration);
 
-const jawab = await openai.createCompletion({
-  model: "code-davinci-002",
-  prompt: message[1],
-  temperatur: 0,
-  max_tokens: 64,
-  top_p: 1.0,
-  frequency_penalty: 0.0,
-  presence_penalty: 0.0,
-  stop: ["\"\"\""],
-});
+const jawaban = await openai.createCompletion({ model: "code-davinci-002", prompt: message[1], temperatur: 0, max_tokens: 64, top_p: 1.0, frequency_penalty: 0.0, presence_penalty: 0.0, stop: ["\"\"\""] });
 
 
 client.on('connected', () => {
