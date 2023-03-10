@@ -7,6 +7,17 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+const jawab = await openai.createCompletion({
+  model: "code-davinci-002",
+  prompt: message[1],
+  temperatur: 0,
+  max_tokens: 64,
+  top_p: 1.0,
+  frequency_penalty: 0.0,
+  presence_penalty: 0.0,
+  stop: ["\"\"\""],
+});
+
 
 client.on('connected', () => {
     console.log(` My Username Is ${client.user.username}`);
@@ -17,15 +28,9 @@ client.on('messageCreate', (message) => {
     message.markSeen();
 
     if(message.content.toLowerCase().includes('Who Is Moezilla')) return message.chat.sendMessage('My Master MoeZilla');
-    if(message.content.toLowerCase().includes('!repo')) return message.chat.sendMessage('https://github.com/MoeZilla/Insta-Chat-Bot');
-    if(message.content.toLowerCase().includes('!Repo')) return message.chat.sendMessage('https://github.com/MoeZilla/Insta-Chat-Bot');
-    if(message.content.toLowerCase().includes('!ping')) return message.chat.sendMessage('pomg');
-
-    chatbot(`https://api.affiliateplus.xyz/api/chatbot?message=${encodeURIComponent(message.content)}&botname=${process.env.BotName}&ownername=${process.env.OwnerName}`)
-    .then(res => res.json())
-    .then(json => {
-      if(!json.message) return;
-      return message.reply(json.message);
+    if(message.content.toLowerCase().includes('!repo')) return message.chat.sendMessage('private!!');
+    if(message.content.toLowerCase().includes('!ask')) return message.chat.sendMessage(jawab);
+    if(message.content.toLowerCase().includes('!ping')) return message.chat.sendMessage('pong');
     }).catch(err => {});
 });
 
