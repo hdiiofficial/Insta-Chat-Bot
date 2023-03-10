@@ -8,7 +8,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const jawaban = await openai.createCompletion({ model: "code-davinci-002", prompt: message[1], temperatur: 0, max_tokens: 64, top_p: 1.0, frequency_penalty: 0.0, presence_penalty: 0.0, stop: ["\"\"\""] });
+// const jawaban = await openai.createCompletion({ model: "code-davinci-002", prompt: message[1], temperatur: 0, max_tokens: 64, top_p: 1.0, frequency_penalty: 0.0, presence_penalty: 0.0, stop: ["\"\"\""] });
 
 
 client.on('connected', () => {
@@ -21,7 +21,7 @@ client.on('messageCreate', (message) => {
 
     if(message.content.toLowerCase().includes('Who Is Moezilla')) return message.chat.sendMessage('My Master MoeZilla');
     if(message.content.toLowerCase().includes('!repo')) return message.chat.sendMessage('private!!');
-    if(message.content.toLowerCase().includes('!ask')) return message.chat.sendMessage(jawab);
+//    if(message.content.toLowerCase().includes('!ask')) return message.chat.sendMessage(jawab);
     if(message.content.toLowerCase().includes('!ping')) return message.chat.sendMessage('pong');
     }).catch(err => {});
 });
